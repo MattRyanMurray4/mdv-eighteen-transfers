@@ -14,8 +14,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
+    "strictPropertyInitialization": false,
     "paths": {
-      "@therapy/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@therapy/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@therapy/core-data": ["libs/core-data/src/index.ts"],
+      "@therapy/core-state": ["libs/core-state/src/index.ts"],
+      "@therapy/material": ["libs/material/src/index.ts"],
+      "@therapy/theme": ["libs/theme/src/index.ts"],
+      "@therapy/ui-library": ["libs/ui-library/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

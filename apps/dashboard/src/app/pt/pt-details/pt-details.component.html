@@ -1,0 +1,67 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title *ngIf="currentTransfer.id; else createNew">
+      <h1>Update {{ originalName }}</h1>
+    </mat-card-title>
+    <ng-template #createNew><h1>Submit a New Transfer</h1></ng-template>
+  </mat-card-header>
+  <form
+    [formGroup]="form"
+    #formDirective="ngForm"
+    (ngSubmit)="saveForm(formDirective)"
+  >
+    <mat-card-content>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          placeholder="Name"
+          formControlName="name"
+          type="text"
+          name="name"
+        />
+        <mat-error *ngIf="form.get('name')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Type</mat-label>
+        <input
+          matInput
+          placeholder="Type"
+          formControlName="type"
+          type="text"
+          name="type"
+        />
+        <mat-error *ngIf="form.get('type')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Cueing</mat-label>
+        <input
+          matInput
+          placeholder="Cueing"
+          formControlName="cueing"
+          type="text"
+          name="cueing"
+        />
+        <mat-error *ngIf="form.get('cueing')">Required Field</mat-error>
+      </mat-form-field>
+      <section>
+        <mat-checkbox formControlName="functional" placeholder="Functional"
+          >Functional Transfer</mat-checkbox
+        >
+      </section>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        type="submit"
+        mat-button
+        [disabled]="form.invalid"
+        class="detail-button"
+      >
+        {{ currentTransfer.id ? 'Submit' : 'Create' }}
+      </button>
+      <button type="button" mat-button (click)="cancel()" class="detail-button">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

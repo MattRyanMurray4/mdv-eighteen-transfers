@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Message } from '@therapy/api-interfaces';
 
 @Component({
   selector: 'therapy-root',
@@ -8,6 +6,9 @@ import { Message } from '@therapy/api-interfaces';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
+  title = 'Therapy-Application';
+  links = [
+    { path: '/', icon: 'home', title: 'Login' },
+    { path: 'pt', icon: 'view_list', title: 'Transfers' },
+  ];
 }

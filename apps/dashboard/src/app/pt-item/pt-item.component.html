@@ -1,0 +1,7 @@
+<div class="info-container container">
+  <div class="col-50" layout="row" layout-align="center center">
+    <div *ngIf="currentTransfer$ | async as transfer">
+      <therapy-pt-info [transfer]="currentTransfer$ | async"></therapy-pt-info>
+    </div>
+  </div>
+</div>
